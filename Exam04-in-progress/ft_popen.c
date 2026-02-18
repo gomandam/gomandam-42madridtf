@@ -1,25 +1,82 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_popen.c                                         :+:      :+:    :+:   */
+/*   ft_popen1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gomandam <gomandam@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 16:06:51 by gomandam          #+#    #+#             */
-/*   Updated: 2026/02/18 16:10:13 by gomandam         ###   ########.fr       */
+/*   Created: 2026/02/18 17:23:44 by gomandam          #+#    #+#             */
+/*   Updated: 2026/02/18 18:03:41 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-int ft_popen(char *f, char *const v[], char t) {
-	int p[2], r = t == 'r', i = 0;
-	if (!f || !v || (t ^ 'r' && t ^ 'w') || pipe(p) || (i = fork()) < 0)
-		return (close(p[0]), close(p[1]), -1);
-	if (!i)	{
-		dup2(p[r], r);
-		close(p[0]);	close(p[1]);
-		execvp(f, v);	exit(1);	}
-    return (close(p[r]), p[!r]);
+int	ft_popen(char *file, char *const argv[], char type)
+{
+	int	pid[2];
+	int	r = type == 'r';
+	int	i = 0;
+
+	if (!file || !argv || (type ^ 'r' && type ^ 'w') || pipe(pid) || (i = fork()) < 0)
+		return (close(pid[0]), close(pid[1]), -1);
+	if (!i)
+	{
+		dup2(pid[r], r);
+		close(pid[0]);
+		close(pid[1]);
+		execvp(file, argv);
+		exit(1);
+	}
+	close(pid[r]);
+	return (pid[!r]);
 }
+
+/*
+Assignment name  : ft_popen
+Expected files   : ft_popen.c
+Allowed functions: pipe, fork, dup2, execvp, close, exit
+--------------------------------------------------------------------------------
+
+Write the following function:
+
+int ft_popen(const char *file, char *const argv[], char type);
+
+The function must launch the executable file with the arguments argv
+(using execvp).
+
+If type is 'r' the function must return a file descriptor
+connected to the output of the command.
+
+If type is 'w' the function must return a file descriptor connected to the
+input of the command.
+
+In case of error or invalid parameter the function must return -1.
+
+For example, the function could be used like that:
+
+int main()
+{
+    int  fd;
+    char *line;
+
+    fd = ft_popen("ls", (char *const []){"ls", NULL}, 'r');
+    while ((line = get_next_line(fd)))
+        ft_putstr(line);
+    return (0);
+}
+
+int	main() {
+	int	fd = ft_popen("ls", (char *const []){"ls", NULL}, 'r');
+	dup2(fd, 0);
+	fd = ft_popen("grep", (char *const []){"grep", "c", NULL}, 'r');
+	char	*line;
+	while ((line = get_next_line(fd)))
+		printf("%s", line);
+}
+
+Hints:
+Do not leak file descriptors!
+This exercise is inspired by the libc's popen().
+*/
