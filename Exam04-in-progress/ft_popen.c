@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_popen1.c                                        :+:      :+:    :+:   */
+/*   ft_popen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gomandam <gomandam@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 17:23:44 by gomandam          #+#    #+#             */
-/*   Updated: 2026/02/18 18:03:41 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/02/19 17:24:19 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 
 int	ft_popen(char *file, char *const argv[], char type)
 {
-	int	pid[2];
+	int	fd[2];
 	int	r = type == 'r';
-	int	i = 0;
+	int	pid = 0;
 
-	if (!file || !argv || (type ^ 'r' && type ^ 'w') || pipe(pid) || (i = fork()) < 0)
-		return (close(pid[0]), close(pid[1]), -1);
-	if (!i)
+	if (!file || !argv || (type ^ 'r' && type ^ 'w') || pipe(fd) || (pid = fork()) < 0)
+		return (close(fd[0]), close(fd[1]), -1);
+	if (!pid)
 	{
-		dup2(pid[r], r);
-		close(pid[0]);
-		close(pid[1]);
+		dup2(fd[r], r);
+		close(fd[0]);
+		close(fd[1]);
 		execvp(file, argv);
 		exit(1);
 	}
-	close(pid[r]);
-	return (pid[!r]);
+	close(fd[r]);
+	return (fd[!r]);
 }
 
 /*
