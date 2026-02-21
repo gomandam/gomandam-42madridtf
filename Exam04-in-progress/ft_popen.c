@@ -6,11 +6,11 @@
 /*   By: gomandam <gomandam@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 17:23:44 by gomandam          #+#    #+#             */
-/*   Updated: 2026/02/21 01:04:09 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/02/21 01:06:47 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// 
+// POPEN; pipe stream to or from a process. PIPE; unidirectional. 
 
 #include <stdlib.h>
 #include <unistd.h>
