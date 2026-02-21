@@ -6,9 +6,11 @@
 /*   By: gomandam <gomandam@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 17:23:44 by gomandam          #+#    #+#             */
-/*   Updated: 2026/02/19 17:24:19 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/02/21 01:04:09 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// 
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -32,6 +34,7 @@ int	ft_popen(char *file, char *const argv[], char type)
 	close(fd[r]);
 	return (fd[!r]);
 }
+
 
 /*
 Assignment name  : ft_popen
