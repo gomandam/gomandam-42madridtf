@@ -6,21 +6,19 @@
 /*   By: gomandam <gomandam@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 07:20:15 by gomandam          #+#    #+#             */
-/*   Updated: 2026/03/05 23:55:13 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/03/05 23:59:07 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* =========================================================================== */
 /*  Compressed direct evaluation parser                                        */
 /*  Compile:  cc -Wall -Wextra -Werror vbc-final.c -o vbc                      */
-/*  Results: 15/15                                                             */
 /*  CHANGELOG v3:                                                              */
-/*    1. Removed <unistd.h> — unused                                           */
 /*    2. Merged unexpected() inline — eliminated standalone function           */
 /*    3. Collapsed parse_factor if/else into ternary error prints              */
 /*    4. Removed tmp variables in parse_term/parse_expr                        */
 /*    5. Replaced exit(1) with return — avoids disallowed function             */
-/*    6. Propagated error via return -1 sentinel + check                       */
+/*    6. Propagated error via return -1 		                       */
 /* ========================================================================== */
 
 /*  This version replaces exit() with a global error flag + returns,           */
@@ -116,11 +114,10 @@ Expression = Term + Term + Term ...
 Term       = Factor * Factor * Factor ...
 Factor     = digit | (Expression)
 
-expr  parses +  (sum of terms)
-term  parses *  (product of factors)
+expr  parses + (sum of terms)
+term  parses * (product of factors)
 Factor parses digits and ()
 
 Deeper in call chain = higher precedence:
-  parse_expr → parse_term → parse_factor
-  (lowest)                   (highest)
+(lowest) parse_expr -> parse_term -> parse_factor (highest)
 */
