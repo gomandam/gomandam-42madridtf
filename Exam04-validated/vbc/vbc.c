@@ -6,15 +6,13 @@
 /*   By: gomandam <gomandam@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 07:20:15 by gomandam          #+#    #+#             */
-/*   Updated: 2026/03/03 23:36:58 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/03/06 00:31:28 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* =========================================================================== */
 /*  Compressed direct evaluation parser                                        */
 /*  Compile:  cc -Wall -Wextra -Werror vbc-final.c -o vbc                      */
-/*  Results: 15/15                                                             */
-/*  Changelog v3:                                                              */
 /*    1. Merged unexpected() inline — eliminated standalone function           */
 /*    2. Collapsed parse_factor if/else into ternary error prints              */
 /*    3. Removed tmp variables in parse_term/parse_expr                        */
