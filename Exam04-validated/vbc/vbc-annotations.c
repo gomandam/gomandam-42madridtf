@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vbc-final.c                                        :+:      :+:    :+:   */
+/*   vbc-annotations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gomandam <gomandam@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 07:20:15 by gomandam          #+#    #+#             */
-/*   Updated: 2026/02/26 07:21:25 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/03/05 23:55:13 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,3 +110,17 @@ int	main(int ac, char *av[])
 	printf("%ld\n", result);                /* COMPRESSED: merged return */
 	return (0);
 }
+
+/*
+Expression = Term + Term + Term ...
+Term       = Factor * Factor * Factor ...
+Factor     = digit | (Expression)
+
+expr  parses +  (sum of terms)
+term  parses *  (product of factors)
+Factor parses digits and ()
+
+Deeper in call chain = higher precedence:
+  parse_expr → parse_term → parse_factor
+  (lowest)                   (highest)
+*/
