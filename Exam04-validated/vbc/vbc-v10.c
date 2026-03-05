@@ -6,7 +6,7 @@
 /*   By: gomandam <gomandam@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 07:20:15 by gomandam          #+#    #+#             */
-/*   Updated: 2026/03/06 00:28:11 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/03/06 00:38:38 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 /*    3. Collapsed parse_factor if/else into ternary error prints              */
 /*    4. Removed tmp variables in parse_term/parse_expr                        */
 /*    5. Replaced exit(1) with return, and used a global variable              */
-/*    6. Propagated error via return -1 		                       */
-/* ========================================================================== */
+/*    6. Propagated error via return -1                                        */
+/* =========================================================================== */
 
 #include <stdio.h>
 #include <stdlib.h>
