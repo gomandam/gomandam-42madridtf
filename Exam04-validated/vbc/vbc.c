@@ -6,7 +6,7 @@
 /*   By: gomandam <gomandam@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 07:20:15 by gomandam          #+#    #+#             */
-/*   Updated: 2026/03/06 00:31:28 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/03/07 11:35:45 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static long	parse_factor(char **s)
 	return (g_err = 1, 0);
 }
 
-/* COMPRESSED: removed tmp variable, multiply directly */
+/* COMPRESSED: removed tmp variable, multiply & add directly */
 static long	parse_term(char **s)
 {
 	long	val;
@@ -70,13 +70,12 @@ static long	parse_term(char **s)
 	return (val);
 }
 
-/* COMPRESSED: removed tmp variable, add directly */
 static long	parse_expr(char **s)
 {
 	long	val;
 
 	val = parse_term(s);
-	while (**s == '+' && !g_err)            /* ADDED: stop on error */
+	while (**s == '+' && !g_err)
 	{
 		(*s)++;
 		val += parse_term(s);               /* COMPRESSED: no tmp */
