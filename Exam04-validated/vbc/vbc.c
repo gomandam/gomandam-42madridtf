@@ -6,7 +6,7 @@
 /*   By: gomandam <gomandam@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 07:20:15 by gomandam          #+#    #+#             */
-/*   Updated: 2026/03/07 11:35:45 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/03/07 11:36:30 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static long	parse_expr(char **s)
 	while (**s == '+' && !g_err)
 	{
 		(*s)++;
-		val += parse_term(s);               /* COMPRESSED: no tmp */
+		val += parse_term(s);
 	}
 	return (val);
 }
