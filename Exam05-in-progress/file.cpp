@@ -6,8 +6,8 @@
 /*   By: gomandam <gomandam@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 17:55:05 by gomandam          #+#    #+#             */
-/*   Updated: 2026/08/31 22:37:40 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/08/31 22:39:05 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-1. Study for vect2: 
+1. Study for vect2: write a 2D mathematical vector class (int x, int y) 
