@@ -6,7 +6,7 @@
 /*   By: gomandam <gomandam@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 20:31:17 by gomandam          #+#    #+#             */
-/*   Updated: 2026/09/02 20:31:22 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/09/03 18:06:09 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,9 @@ int& vect2::operator[](int i)                   {       return i ? _y : _x;     
 const int& vect2::operator[](int i) const       {       return i ? _y : _x;             }
 
 
-vect2 vect2::operator*(int n) const     {       return vect2(_x * n, _y * n);           }
-
-
 vect2 vect2::operator-() const          {       return vect2(-_x, -_y);                 }
 
+vect2 vect2::operator*(int n) const     {       return vect2(_x * n, _y * n);           }
 
 vect2& vect2::operator*=(int n)         {       _x *= n;  _y *= n;  return *this;       }
 
