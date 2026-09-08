@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vect2.cpp                                          :+:      :+:    :+:   */
+/*   vect2e.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gomandam <gomandam@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 21:49:34 by gomandam          #+#    #+#             */
-/*   Updated: 2026/09/07 23:37:43 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/09/08 18:03:31 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,13 @@ vect2	vect2::operator-() const
 	return vect2(-_x, -_y);
 }
 
-//HIGHLIGHTED: *(int n), *n	RM:'-'
+//HIGHLIGHTED: *(int n), *n			RM:'-'
 vect2	vect2::operator*(int n) const
 {
 	return vect2(_x * n, _y * n);
 }
 
-//HIGHLIGHTED: *= , *this	 RM: return vect2, const
+//HIGHLIGHTED:data_type& . *= , *this		RM: return vect2, const
 vect2&	vect2::operator*=(int n)
 {
 	return (_x *= n, _y *= n, *this);
