@@ -24,7 +24,7 @@ vect2	vect2::operator-(const vect2 v) const
 	return vect2(_x - v._x, _y - v._y);
 }
 
-// HIGHLIGHTED: vect2& return type and parameter, *this
+// ADD: vect2& return type and parameter, *this
 vect2&	vect2::operator+=(const vect2& v)
 {
 	return (_x += v._x, _y += v._y, *this);
@@ -35,7 +35,7 @@ vect2&	vect2::operator-=(const vect2& v)
 	return (_x -= v._x, _y -= v._y, *this);
 }
 
-//HIGHLIGHTED: operator++(), ++_x/_y
+//ADD: operator++(), ++_x/_y
 vect2&	vect2::operator++()
 {
 	return (++_x, ++_y, *this);
@@ -46,7 +46,7 @@ vect2&	vect2::operator--()
 	return (--_x, --_y, *this);
 }
 
-// HIGHLIGHTED: int parameter (as place-holder), full implementation 
+// ADD: int parameter (as place-holder), full implementation 
 vect2	vect2::operator++(int)
 {
 	vect2 tmp(*this);
@@ -76,13 +76,13 @@ vect2	vect2::operator-() const
 	return vect2(-_x, -_y);
 }
 
-//HIGHLIGHTED: *(int n), *n			RM:'-'
+//ADD: *(int n), *n			RM:'-'
 vect2	vect2::operator*(int n) const
 {
 	return vect2(_x * n, _y * n);
 }
 
-//HIGHLIGHTED:data_type& . *= , *this		RM: return vect2, const
+//ADD:data_type& . *= , *this		RM: return vect2, const
 vect2&	vect2::operator*=(int n)
 {
 	return (_x *= n, _y *= n, *this);
