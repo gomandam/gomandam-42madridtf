@@ -61,8 +61,6 @@ int main(int ac, char **av)
 }
 
 /*
-Direct summary — here are **all shortening concepts used from the start**, in order:
-
 1. **Sentinel border padding (`+2` width/height)**  
    Added a dead border around the playable grid so neighbor checks don’t need per-access bounds conditions.
 
@@ -111,6 +109,5 @@ Direct summary — here are **all shortening concepts used from the start**, in 
 15. **Preserved explicit final return**  
     `return 0;` kept for strict correctness/clean compilation behavior.
 
-- **“safe shortenings”** (no robustness loss),
 - **“risky shortenings”** (shorter but weaker safety).
 */
