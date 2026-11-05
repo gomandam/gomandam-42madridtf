@@ -6,7 +6,7 @@
 /*   By: gomandam <gomandam@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 18:29:48 by gomandam          #+#    #+#             */
-/*   Updated: 2026/09/14 18:29:53 by gomandam         ###   ########.fr       */
+/*   Updated: 2026/09/28 23:21:48 by gomandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,7 @@ int main(int ac, char **av)
 			 y += (ch == 's') - (ch == 'w'),
 			 x += (ch == 'd') - (ch == 'a')
 			),
-            			p &&
-            			x > 0 &&
-            			x < w - 1 &&
-            			y > 0 &&
-            			y < h - 1
+            			p && x > 0 && x < w - 1 && y > 0 && y < h - 1
 		  )
 		b[y * w + x] = 1;
 
@@ -44,16 +40,15 @@ int main(int ac, char **av)
 			for (y = 1; y < h - 1; y++)
 				for (x = 1; x < w - 1; x++)
 					i = y * w + x,
-					  p = 
-					   b[i - w - 1] +
-                        		   b[i - w] +
-                        		   b[i - w + 1] +
-                        		   b[i - 1] +
-                        		   b[i + 1] +
-                        		   b[i + w - 1] +
-                        		   b[i + w] +
-                        		   b[i + w + 1],
-                    		t[i] = p == 3 || (p == 2 && b[i]);
+					  p =	b[i - w - 1] +
+						b[i - w] +
+						b[i - w + 1] +
+						b[i - 1] +
+						b[i + 1] +
+						b[i + w - 1] +
+						b[i + w] +
+						b[i + w + 1],
+					t[i] = p == 3 || (p == 2 && b[i]);
 
 	for (y = 1; y < h - 1; y++, putchar(10))
 		for (x = 1; x < w - 1; x++)
